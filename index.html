@@ -164,13 +164,88 @@ h3{margin:0}
 @media (max-width:900px){.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.news-grid{grid-template-columns:1fr}}
 
-/* contact */
-#contact label{display:flex}
-#contact input:focus,#contact textarea:focus{outline:none;border-color:#5B3A24;box-shadow:0 0 0 3px rgba(201,146,46,0.35)}
 /* footer */
 footer{background:#1E120B;color:#CDB9A5;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-top:24px;padding-bottom:24px}
+
+[hidden]{display:none!important}
+/* clickable details */
+.prod-img{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;border-radius:4px;overflow:hidden}
+.prod-img figure{transition:transform .25s}
+.prod-img:hover figure{transform:scale(1.03)}
+.prod-actions{margin-top:auto;padding-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px}
+.product .prod-actions .ask{margin:0;padding-top:0}
+.prod-more{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 18px;border:2px solid var(--saddle);border-radius:8px;background:#fff;color:var(--saddle);font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.prod-more:hover{background:var(--saddle);color:#fff}
+.prod-more:hover .chev{transform:translateX(3px)}
+.services li{padding:0;display:block}
+.svc-btn{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) auto;gap:6px 24px;align-items:start;width:100%;padding:18px 12px 18px 0;background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;transition:background .15s,padding .15s}
+.svc-btn:hover{background:var(--linen);padding-left:12px}
+.svc-t{font-weight:700;font-size:18px;color:var(--espresso)}
+.svc-d{color:var(--muted)}
+.svc-go,.val-go{display:inline-flex;align-items:center;gap:4px;color:var(--saddle);font-weight:600;font-size:14px;white-space:nowrap}
+.svc-btn:hover .chev,.val-btn:hover .chev{transform:translateX(3px)}
+.chev{transition:transform .15s}
+.values li{padding:0!important}
+.val-btn{display:flex;flex-direction:column;align-items:flex-start;gap:6px;width:100%;height:100%;padding:22px 20px 18px 0;background:none;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.values li+li .val-btn{padding-left:20px}
+.val-btn:hover{background:rgba(255,255,255,0.6)}
+.val-btn strong{display:block;font-weight:700;font-size:22px;color:var(--espresso)}
+.val-go{margin-top:auto;padding-top:8px}
+@media (max-width:860px){.svc-btn{grid-template-columns:1fr}.svc-go{justify-self:start}}
+@media (max-width:900px){.values li+li .val-btn,.val-btn{padding:18px 12px 14px 0}.values li:nth-child(even) .val-btn{padding-left:16px}}
+@media (max-width:520px){.values li:nth-child(even) .val-btn{padding-left:0}}
+
+dialog#detail{border:0;padding:0;border-radius:10px;width:min(680px,calc(100vw - 32px));max-height:calc(100dvh - 48px);overflow:auto;color:var(--ink);box-shadow:0 24px 60px rgba(42,26,16,0.35)}
+dialog#detail::backdrop{background:rgba(42,26,16,0.6)}
+dialog#detail[open]{animation:dlg .2s ease-out}
+@keyframes dlg{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.dlg-img{width:100%;aspect-ratio:16/8;object-fit:cover}
+.dlg-body{padding:28px 32px 32px;border-top:4px solid var(--brass)}
+.dlg-body h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:36px;line-height:1.1;margin:0 0 16px;color:var(--espresso);padding-right:40px}
+.dlg-content p{margin:0 0 12px;color:var(--ink)}
+.dlg-content ul{margin:0 0 14px;padding:0;list-style:none;display:grid;gap:8px}
+.dlg-content li{position:relative;padding-left:22px;color:var(--ink)}
+.dlg-content li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:10px;background:var(--brass);border-radius:2px}
+.dlg-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,0.92);color:var(--espresso);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+.dlg-close:hover{background:#fff}
+.dlg-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn-line{border:2px solid var(--saddle);color:var(--saddle)}
+.btn-line:hover{background:var(--linen)}
+@media (max-width:520px){.dlg-body{padding:22px 20px 24px}.dlg-body h3{font-size:30px}}
+
+/* contact (classic style) */
+.contact{background:#5B3A24;color:#fff}
+.contact .wrap{padding-top:88px;padding-bottom:88px;display:flex;flex-wrap:wrap;gap:56px}
+.contact-info{flex:1 1 340px;min-width:0}
+.contact h2{font-family:'Barlow Condensed',sans-serif;font-size:46px;line-height:1.1;margin:0 0 14px;font-weight:700}
+.contact .intro{color:#F3E6D8;margin:0 0 30px}
+.contact-lines{display:flex;flex-direction:column;gap:14px}
+.contact-lines a{color:#fff;text-decoration:underline}
+.contact form{flex:999 1 460px;min-width:0;background:#fff;color:#2E1D12;border-radius:12px;padding:30px;display:flex;flex-direction:column;gap:16px}
+.contact .row{display:flex;flex-wrap:wrap;gap:16px}
+.contact .row label{flex:1 1 200px}
+.contact label{flex:none;display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:600}
+.contact input,.contact textarea{font:inherit;font-weight:400;font-size:16px;color:#2E1D12;border:1px solid #CDB9A5;border-radius:6px;padding:12px 14px;background:#fff;width:100%}
+.contact input:focus,.contact textarea:focus{outline:none;border-color:#5B3A24;box-shadow:0 0 0 3px rgba(201,146,46,0.35)}
+.contact textarea{resize:vertical}
+.contact button[type=submit]{align-self:flex-start;background:#5B3A24;color:#fff;border:0;font:inherit;font-weight:700;font-size:16px;padding:14px 32px;border-radius:6px;cursor:pointer}
+.contact button[type=submit]:hover{background:#2A1A10}
+.contact button[disabled]{opacity:.6;cursor:wait}
+.form-msg{margin:0;font-weight:600;font-size:15px;padding:12px 14px;border-radius:6px}
+.form-msg.ok{background:#EAF3E6;color:#24461B}
+.form-msg.err{background:#FBEAE5;color:#7A2414}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* news */
+.news-grid:empty{display:none}
 </style>
+<script>
+/* ====== KẾT NỐI GOOGLE SHEET ======
+   Dán link Web App của Apps Script vào giữa hai dấu nháy bên dưới.
+   Để trống "" thì web dùng nội dung có sẵn trong file này. */
+var SHEET_API = "https://script.google.com/macros/s/AKfycbyTz1pVA0VDkYPf6zQlXKpqBSp-l8pxDyWIh9EeVzXNsypKTrTQJfe925EhUOl1X-DO/exec";
+</script>
 </head>
 <body>
 
@@ -181,11 +256,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
       <span class="brand-word">MUT</span>
     </a>
     <nav class="nav" aria-label="Menu">
-      <a href="#about"><span class="vi">Giới thiệu</span><span class="en">About</span></a>
-      <a href="#vision"><span class="vi">Tầm nhìn</span><span class="en">Vision</span></a>
-      <a href="#products"><span class="vi">Sản phẩm</span><span class="en">Products</span></a>
-      <a href="#news"><span class="vi">Tin tức</span><span class="en">News</span></a>
-      <a href="#contact"><span class="vi">Liên hệ</span><span class="en">Contact</span></a>
+      <a data-k="nav_about" href="#about"><span class="vi">Giới thiệu</span><span class="en">About</span></a>
+      <a data-k="nav_vision" href="#vision"><span class="vi">Tầm nhìn</span><span class="en">Vision</span></a>
+      <a data-k="nav_products" href="#products"><span class="vi">Sản phẩm</span><span class="en">Products</span></a>
+      <a data-k="nav_news" href="#news"><span class="vi">Tin tức</span><span class="en">News</span></a>
+      <a data-k="nav_contact" href="#contact"><span class="vi">Liên hệ</span><span class="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
       <button type="button" class="lang-btn" data-lang="vi">VI</button>
@@ -195,23 +270,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
 </header>
 
 <main id="top">
-  <section class="hero">
+  <section class="hero" data-bg="hero_image">
     <div class="wrap hero-inner">
-      <div class="vi">
-        <h1 class="display">Sửa ECU đúng bệnh, xe sớm lăn bánh</h1>
-        <p>MUT sửa chữa, lập trình hộp ECU và cung cấp phần mềm, thiết bị chẩn đoán cho gara, chủ xe tải và xe du lịch.</p>
-        <div class="actions">
-          <a class="btn btn-brass" href="tel:0981001105">Gọi 0981 001 105</a>
-          <a class="btn btn-ghost" href="#products">Xem sản phẩm</a>
-        </div>
-      </div>
-      <div class="en">
-        <h1 class="display">Accurate ECU repair that gets vehicles moving</h1>
-        <p>MUT repairs and programs ECUs and supplies diagnostic software and tools for workshops, truck owners and passenger cars.</p>
-        <div class="actions">
-          <a class="btn btn-brass" href="tel:+84981001105">Call +84 981 001 105</a>
-          <a class="btn btn-ghost" href="#products">View products</a>
-        </div>
+      <h1 class="display" data-k="hero_title"><span class="vi">Sửa ECU đúng bệnh, xe sớm lăn bánh</span><span class="en">Accurate ECU repair that gets vehicles moving</span></h1>
+      <p data-k="hero_text"><span class="vi">MUT sửa chữa, lập trình hộp ECU và cung cấp phần mềm, thiết bị chẩn đoán cho gara, chủ xe tải và xe du lịch.</span><span class="en">MUT repairs and programs ECUs and supplies diagnostic software and tools for workshops, truck owners and passenger cars.</span></p>
+      <div class="actions">
+        <a class="btn btn-brass" data-tel href="tel:0981001105"><span data-k="hero_btn_call"><span class="vi">Gọi</span><span class="en">Call</span></span>&nbsp;<span data-phone>0981 001 105</span></a>
+        <a class="btn btn-ghost" data-k="hero_btn_products" href="#products"><span class="vi">Xem sản phẩm</span><span class="en">View products</span></a>
       </div>
     </div>
   </section>
@@ -219,16 +284,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
   <div class="plate">
     <div class="wrap">
       <div class="plate-cell">
-        <div class="plate-k"><span class="vi">Hotline / Zalo – Tuấn Anh</span><span class="en">Hotline / Zalo – Tuấn Anh</span></div>
-        <div class="plate-v plate-phone"><a href="tel:0981001105">0981 001 105</a></div>
+        <div class="plate-k"><span data-k="plate_phone_label"><span class="vi">Hotline / Zalo</span><span class="en">Hotline / Zalo</span></span> – <span data-k="contact_person"><span class="vi">Tuấn Anh</span><span class="en">Tuấn Anh</span></span></div>
+        <div class="plate-v plate-phone"><a data-tel href="tel:0981001105" data-phone>0981 001 105</a></div>
       </div>
       <div class="plate-cell">
-        <div class="plate-k"><span class="vi">Giờ làm việc</span><span class="en">Business hours</span></div>
-        <div class="plate-v"><span class="vi">8:00 – 18:00</span><span class="en">8:00 AM – 6:00 PM</span></div>
+        <div class="plate-k" data-k="plate_hours_label"><span class="vi">Giờ làm việc</span><span class="en">Business hours</span></div>
+        <div class="plate-v" data-k="hours"><span class="vi">8:00 – 18:00</span><span class="en">8:00 AM – 6:00 PM</span></div>
       </div>
       <div class="plate-cell">
-        <div class="plate-k"><span class="vi">Xưởng</span><span class="en">Workshop</span></div>
-        <div class="plate-v"><span class="vi">Nguyễn Quốc Trinh, Đại Áng, Ngọc Hồi, Hà Nội</span><span class="en">Nguyen Quoc Trinh St., Dai Ang, Ngoc Hoi, Hanoi</span></div>
+        <div class="plate-k" data-k="plate_addr_label"><span class="vi">Xưởng</span><span class="en">Workshop</span></div>
+        <div class="plate-v" data-k="address"><span class="vi">Nguyễn Quốc Trinh, Đại Áng, Ngọc Hồi, Hà Nội</span><span class="en">Nguyen Quoc Trinh St., Dai Ang, Ngoc Hoi, Hanoi, Vietnam</span></div>
       </div>
     </div>
   </div>
@@ -236,78 +301,42 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
   <section id="about" class="about">
     <div class="wrap">
       <div class="about-photo">
-        <img src="ecu-repair.jpg" alt="Kỹ thuật viên MUT sửa bo mạch ECU / MUT technician repairing an ECU board" loading="lazy">
+        <img data-img="about_image" src="ecu-repair.jpg" alt="Kỹ thuật viên MUT sửa bo mạch ECU / MUT technician repairing an ECU board" loading="lazy">
       </div>
       <div>
-        <div class="vi">
-          <h2 class="display">Về công ty MUT</h2>
-          <p class="lead">MUT tập trung vào phần điện – điện tử ô tô: sửa chữa và lập trình hộp ECU, cung cấp phần mềm chẩn đoán đa hãng và hỗ trợ kỹ thuật cho gara.</p>
-          <p class="body">Đội ngũ kỹ thuật nhiều năm kinh nghiệm, đã xử lý nhiều dòng xe từ xe tải đến xe du lịch như Sinotruk, Hyundai và các hãng khác. Chất lượng ổn định giúp MUT có được sự tin tưởng lâu dài của khách hàng và gara.</p>
-          <ul class="services">
-            <li><h3>Sửa chữa ECU</h3><p>Phục hồi hộp hỏng do chập, ngấm nước, quá nhiệt.</p></li>
-            <li><h3>Lập trình &amp; coding</h3><p>Cài đặt ECU thay thế, đồng bộ chìa khóa.</p></li>
-            <li><h3>Hỗ trợ kỹ thuật</h3><p>Đào tạo và hỗ trợ từ xa cho gara.</p></li>
-          </ul>
-        </div>
-        <div class="en">
-          <h2 class="display">About MUT</h2>
-          <p class="lead">MUT focuses on automotive electrical and electronic systems: ECU repair and programming, multi-brand diagnostic software and technical support for workshops.</p>
-          <p class="body">Our technicians bring many years of experience across a wide range of vehicles, from trucks to passenger cars, including Sinotruk, Hyundai and other makes. Consistent quality has earned MUT the long-term trust of customers and workshops.</p>
-          <ul class="services">
-            <li><h3>ECU repair</h3><p>Recovering units damaged by shorts, water or heat.</p></li>
-            <li><h3>Programming &amp; coding</h3><p>Replacement ECU setup and key synchronisation.</p></li>
-            <li><h3>Technical support</h3><p>Training and remote support for workshops.</p></li>
-          </ul>
-        </div>
+        <h2 class="display" data-k="about_title"><span class="vi">Về công ty MUT</span><span class="en">About MUT</span></h2>
+        <p class="lead" data-k="about_lead"><span class="vi">MUT tập trung vào phần điện – điện tử ô tô: sửa chữa và lập trình hộp ECU, cung cấp phần mềm chẩn đoán đa hãng và hỗ trợ kỹ thuật cho gara.</span><span class="en">MUT focuses on automotive electrical and electronic systems: ECU repair and programming, multi-brand diagnostic software and technical support for workshops.</span></p>
+        <p class="body" data-k="about_body"><span class="vi">Đội ngũ kỹ thuật nhiều năm kinh nghiệm, đã xử lý nhiều dòng xe từ xe tải đến xe du lịch như Sinotruk, Hyundai và các hãng khác. Chất lượng ổn định giúp MUT có được sự tin tưởng lâu dài của khách hàng và gara.</span><span class="en">Our technicians bring many years of experience across a wide range of vehicles, from trucks to passenger cars, including Sinotruk, Hyundai and other makes. Consistent quality has earned MUT the long-term trust of customers and workshops.</span></p>
+        <ul class="services">
+          <li><button type="button" class="svc-btn" data-detail="svc1" aria-haspopup="dialog"><span class="svc-t" data-k="svc1_title"><span class="vi">Sửa chữa ECU</span><span class="en">ECU repair</span></span><span class="svc-d" data-k="svc1_text"><span class="vi">Phục hồi hộp hỏng do chập, ngấm nước, quá nhiệt.</span><span class="en">Recovering units damaged by shorts, water or heat.</span></span><span class="svc-go"><span class="more" data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></button></li>
+          <li><button type="button" class="svc-btn" data-detail="svc2" aria-haspopup="dialog"><span class="svc-t" data-k="svc2_title"><span class="vi">Lập trình &amp; coding</span><span class="en">Programming &amp; coding</span></span><span class="svc-d" data-k="svc2_text"><span class="vi">Cài đặt ECU thay thế, đồng bộ chìa khóa.</span><span class="en">Replacement ECU setup and key synchronisation.</span></span><span class="svc-go"><span class="more" data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></button></li>
+          <li><button type="button" class="svc-btn" data-detail="svc3" aria-haspopup="dialog"><span class="svc-t" data-k="svc3_title"><span class="vi">Hỗ trợ kỹ thuật</span><span class="en">Technical support</span></span><span class="svc-d" data-k="svc3_text"><span class="vi">Đào tạo và hỗ trợ từ xa cho gara.</span><span class="en">Training and remote support for workshops.</span></span><span class="svc-go"><span class="more" data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></button></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section id="vision" class="direction">
     <div class="wrap">
-      <div class="vi">
-        <h2 class="display">Tầm nhìn, sứ mệnh và giá trị</h2>
-        <div class="direction-grid">
-          <div class="vision-block">
-            <p class="k">Tầm nhìn</p>
-            <p class="vision-text">Trở thành đơn vị ECU và chẩn đoán điện tử ô tô được gara và chủ xe tin chọn hàng đầu, đặc biệt với xe tải và xe thương mại.</p>
-          </div>
-          <div class="mission-block">
-            <p class="k">Sứ mệnh</p>
-            <p>Giúp gara và chủ xe xử lý lỗi điện – điện tử nhanh, đúng bệnh và tiết kiệm chi phí, để xe sớm quay lại công việc.</p>
-          </div>
+      <h2 class="display" data-k="vision_heading"><span class="vi">Tầm nhìn, sứ mệnh và giá trị</span><span class="en">Vision, mission and values</span></h2>
+      <div class="direction-grid">
+        <div class="vision-block">
+          <p class="k" data-k="vision_label"><span class="vi">Tầm nhìn</span><span class="en">Vision</span></p>
+          <p class="vision-text" data-k="vision_text"><span class="vi">Trở thành đơn vị ECU và chẩn đoán điện tử ô tô được gara và chủ xe tin chọn hàng đầu, đặc biệt với xe tải và xe thương mại.</span><span class="en">To be the ECU and automotive diagnostics partner that workshops and vehicle owners trust first, especially for trucks and commercial vehicles.</span></p>
         </div>
-        <div class="values">
-          <p class="k">Giá trị cốt lõi</p>
-          <ul>
-            <li><strong>Chính xác</strong><span class="d">Chẩn đoán đúng nguyên nhân trước khi sửa.</span></li>
-            <li><strong>Minh bạch</strong><span class="d">Báo giá rõ ràng, không phát sinh.</span></li>
-            <li><strong>Tận tâm</strong><span class="d">Đồng hành và hỗ trợ sau sửa chữa.</span></li>
-            <li><strong>Cầu tiến</strong><span class="d">Liên tục cập nhật công nghệ mới.</span></li>
-          </ul>
+        <div class="mission-block">
+          <p class="k" data-k="mission_label"><span class="vi">Sứ mệnh</span><span class="en">Mission</span></p>
+          <p data-k="mission_text"><span class="vi">Giúp gara và chủ xe xử lý lỗi điện – điện tử nhanh, đúng bệnh và tiết kiệm chi phí, để xe sớm quay lại công việc.</span><span class="en">Help workshops and owners fix electrical and electronic faults quickly, accurately and cost-effectively, so vehicles get back to work sooner.</span></p>
         </div>
       </div>
-      <div class="en">
-        <h2 class="display">Vision, mission and values</h2>
-        <div class="direction-grid">
-          <div class="vision-block">
-            <p class="k">Vision</p>
-            <p class="vision-text">To be the ECU and automotive diagnostics partner that workshops and vehicle owners trust first, especially for trucks and commercial vehicles.</p>
-          </div>
-          <div class="mission-block">
-            <p class="k">Mission</p>
-            <p>Help workshops and owners fix electrical and electronic faults quickly, accurately and cost-effectively, so vehicles get back to work sooner.</p>
-          </div>
-        </div>
-        <div class="values">
-          <p class="k">Core values</p>
-          <ul>
-            <li><strong>Accuracy</strong><span class="d">Find the real cause before repairing.</span></li>
-            <li><strong>Transparency</strong><span class="d">Clear quotes, no surprises.</span></li>
-            <li><strong>Commitment</strong><span class="d">Support that continues after the repair.</span></li>
-            <li><strong>Growth</strong><span class="d">Always learning new technology.</span></li>
-          </ul>
-        </div>
+      <div class="values">
+        <p class="k" data-k="values_label"><span class="vi">Giá trị cốt lõi</span><span class="en">Core values</span></p>
+        <ul>
+          <li><button type="button" class="val-btn" data-detail="val1" aria-haspopup="dialog"><strong data-k="val1_title"><span class="vi">Chính xác</span><span class="en">Accuracy</span></strong><span class="d" data-k="val1_text"><span class="vi">Chẩn đoán đúng nguyên nhân trước khi sửa.</span><span class="en">Find the real cause before repairing.</span></span><span class="val-go"><span class="more" data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></button></li>
+          <li><button type="button" class="val-btn" data-detail="val2" aria-haspopup="dialog"><strong data-k="val2_title"><span class="vi">Minh bạch</span><span class="en">Transparency</span></strong><span class="d" data-k="val2_text"><span class="vi">Báo giá rõ ràng, không phát sinh.</span><span class="en">Clear quotes, no surprises.</span></span><span class="val-go"><span class="more" data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></button></li>
+          <li><button type="button" class="val-btn" data-detail="val3" aria-haspopup="dialog"><strong data-k="val3_title"><span class="vi">Tận tâm</span><span class="en">Commitment</span></strong><span class="d" data-k="val3_text"><span class="vi">Đồng hành và hỗ trợ sau sửa chữa.</span><span class="en">Support that continues after the repair.</span></span><span class="val-go"><span class="more" data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></button></li>
+          <li><button type="button" class="val-btn" data-detail="val4" aria-haspopup="dialog"><strong data-k="val4_title"><span class="vi">Cầu tiến</span><span class="en">Growth</span></strong><span class="d" data-k="val4_text"><span class="vi">Liên tục cập nhật công nghệ mới.</span><span class="en">Always learning new technology.</span></span><span class="val-go"><span class="more" data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></span></button></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -315,32 +344,39 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
   <section id="products" class="products">
     <div class="wrap">
       <div class="section-head">
-        <div class="vi"><h2 class="display">Sản phẩm &amp; dịch vụ</h2><p>ECU, phần mềm và thiết bị chẩn đoán MUT cung cấp và hỗ trợ cài đặt. Giá tùy dòng xe, vui lòng liên hệ để được báo giá.</p></div>
-        <div class="en"><h2 class="display">Products &amp; services</h2><p>ECUs, software and diagnostic tools that MUT supplies and installs. Pricing depends on the vehicle – contact us for a quote.</p></div>
+        <h2 class="display" data-k="products_title"><span class="vi">Sản phẩm &amp; dịch vụ</span><span class="en">Products &amp; services</span></h2>
+        <p data-k="products_intro"><span class="vi">ECU, phần mềm và thiết bị chẩn đoán MUT cung cấp và hỗ trợ cài đặt. Giá tùy dòng xe, vui lòng liên hệ để được báo giá.</span><span class="en">ECUs, software and diagnostic tools that MUT supplies and installs. Pricing depends on the vehicle – contact us for a quote.</span></p>
       </div>
-      <div class="product-grid">
+      <div class="product-grid" id="product-list">
         <article class="product">
-          <figure><img src="ecu-engine.jpg" alt="Hộp ECU động cơ / Engine ECU" loading="lazy"></figure>
+          <button type="button" class="prod-img" data-prod="0" aria-haspopup="dialog" aria-label="ECU động cơ – Xem chi tiết"><figure><img src="ecu-engine.jpg" alt="ECU động cơ / Engine ECU" loading="lazy"></figure></button>
           <div class="product-body">
-            <div class="vi"><h3>ECU động cơ</h3><p>Sửa chữa, thay thế và cài đặt ECU động cơ cho xe tải và xe du lịch.</p></div>
-            <div class="en"><h3>Engine ECU</h3><p>Engine ECU repair, replacement and setup for trucks and passenger cars.</p></div>
-            <a class="ask" href="#contact"><span class="vi">Liên hệ báo giá</span><span class="en">Contact for price</span></a>
+            <h3><span class="vi">ECU động cơ</span><span class="en">Engine ECU</span></h3>
+            <p><span class="vi">Sửa chữa, thay thế và cài đặt ECU động cơ cho xe tải và xe du lịch.</span><span class="en">Engine ECU repair, replacement and setup for trucks and passenger cars.</span></p>
+            <div class="prod-actions">
+              <button type="button" class="prod-more" data-prod="0" aria-haspopup="dialog"><span data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+              <a class="ask" href="#contact" data-k="product_cta"><span class="vi">Liên hệ báo giá</span><span class="en">Contact for price</span></a>
+            </div>
           </div>
-        </article>
-        <article class="product">
-          <figure><img src="diag-software.jpg" alt="Laptop chạy phần mềm chẩn đoán / Laptop running diagnostic software" loading="lazy"></figure>
+        </article><article class="product">
+          <button type="button" class="prod-img" data-prod="1" aria-haspopup="dialog" aria-label="Phần mềm chẩn đoán – Xem chi tiết"><figure><img src="diag-software.jpg" alt="Phần mềm chẩn đoán / Diagnostic software" loading="lazy"></figure></button>
           <div class="product-body">
-            <div class="vi"><h3>Phần mềm chẩn đoán</h3><p>Đọc/xóa lỗi, xem dữ liệu động, coding và cài đặt.</p></div>
-            <div class="en"><h3>Diagnostic software</h3><p>Read/clear codes, live data, coding and setup.</p></div>
-            <a class="ask" href="#contact"><span class="vi">Liên hệ báo giá</span><span class="en">Contact for price</span></a>
+            <h3><span class="vi">Phần mềm chẩn đoán</span><span class="en">Diagnostic software</span></h3>
+            <p><span class="vi">Đọc/xóa lỗi, xem dữ liệu động, coding và cài đặt.</span><span class="en">Read/clear codes, live data, coding and setup.</span></p>
+            <div class="prod-actions">
+              <button type="button" class="prod-more" data-prod="1" aria-haspopup="dialog"><span data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+              <a class="ask" href="#contact" data-k="product_cta"><span class="vi">Liên hệ báo giá</span><span class="en">Contact for price</span></a>
+            </div>
           </div>
-        </article>
-        <article class="product">
-          <figure><img src="diag-tool.jpg" alt="Máy chẩn đoán cầm tay và bộ đầu nối / Handheld diagnostic scanner and connectors" loading="lazy"></figure>
+        </article><article class="product">
+          <button type="button" class="prod-img" data-prod="2" aria-haspopup="dialog" aria-label="Thiết bị chẩn đoán – Xem chi tiết"><figure><img src="diag-tool.jpg" alt="Thiết bị chẩn đoán / Diagnostic tools" loading="lazy"></figure></button>
           <div class="product-body">
-            <div class="vi"><h3>Thiết bị chẩn đoán</h3><p>Máy chẩn đoán cầm tay, máy đọc lỗi OBD và cáp kết nối.</p></div>
-            <div class="en"><h3>Diagnostic tools</h3><p>Handheld diagnostic scanners, OBD readers and interface cables.</p></div>
-            <a class="ask" href="#contact"><span class="vi">Liên hệ báo giá</span><span class="en">Contact for price</span></a>
+            <h3><span class="vi">Thiết bị chẩn đoán</span><span class="en">Diagnostic tools</span></h3>
+            <p><span class="vi">Máy chẩn đoán cầm tay, máy đọc lỗi OBD và cáp kết nối.</span><span class="en">Handheld diagnostic scanners, OBD readers and interface cables.</span></p>
+            <div class="prod-actions">
+              <button type="button" class="prod-more" data-prod="2" aria-haspopup="dialog"><span data-k="detail_more"><span class="vi">Xem chi tiết</span><span class="en">View details</span></span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+              <a class="ask" href="#contact" data-k="product_cta"><span class="vi">Liên hệ báo giá</span><span class="en">Contact for price</span></a>
+            </div>
           </div>
         </article>
       </div>
@@ -350,86 +386,228 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
   <section id="news" class="news">
     <div class="wrap">
       <div class="section-head">
-        <div class="vi"><h2 class="display">Tin tức</h2><p>Cập nhật mới nhất từ xưởng MUT.</p></div>
-        <div class="en"><h2 class="display">News</h2><p>Latest updates from the MUT workshop.</p></div>
+        <h2 class="display" data-k="news_title"><span class="vi">Tin tức</span><span class="en">News</span></h2>
+        <p data-k="news_intro"><span class="vi">Cập nhật mới nhất từ xưởng MUT.</span><span class="en">Latest updates from the MUT workshop.</span></p>
       </div>
       <div class="news-grid" id="news-list" aria-live="polite"></div>
-      <p class="news-empty" id="news-empty" hidden><span class="vi">Chưa có tin mới.</span><span class="en">No news yet.</span></p>
+      <p class="news-empty" id="news-empty" hidden data-k="news_empty"><span class="vi">Chưa có tin mới.</span><span class="en">No news yet.</span></p>
     </div>
   </section>
 
-  <section id="contact" style="background: #5B3A24; color: #FFFFFF">
-<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px">
-<div style="flex: 1 1 340px; min-width: 0">
-<div class="vi">
-<h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: 46px; line-height: 1.1; margin: 0 0 14px">Liên hệ MUT</h2>
-<p style="color: #F3E6D8; margin: 0 0 30px">Gửi mã lỗi và đời xe, kỹ thuật viên sẽ phản hồi trong giờ làm việc.</p>
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div><strong>Người liên hệ:</strong> Tuấn Anh</div>
-<div><strong>Địa chỉ:</strong> Nguyễn Quốc Trinh, Đại Áng, Ngọc Hồi, Hà Nội</div>
-<div><strong>Hotline / Zalo:</strong> <a href="tel:0981001105" style="color: #FFFFFF; text-decoration: underline">0981 001 105</a> · <a href="https://zalo.me/0981001105" target="_blank" rel="noopener" style="color: #FFFFFF; text-decoration: underline">Chat Zalo</a></div>
-<div><strong>Giờ làm việc:</strong> 8:00 – 18:00</div>
-</div>
-</div>
-<div class="en">
-<h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: 46px; line-height: 1.1; margin: 0 0 14px">Contact MUT</h2>
-<p style="color: #F3E6D8; margin: 0 0 30px">Send us the fault codes and vehicle model; a technician will reply during business hours.</p>
-<div style="display: flex; flex-direction: column; gap: 14px">
-<div><strong>Contact person:</strong> Tuấn Anh</div>
-<div><strong>Address:</strong> Nguyen Quoc Trinh St., Dai Ang, Ngoc Hoi, Hanoi, Vietnam</div>
-<div><strong>Hotline / Zalo:</strong> <a href="tel:+84981001105" style="color: #FFFFFF; text-decoration: underline">+84 981 001 105</a> · <a href="https://zalo.me/0981001105" target="_blank" rel="noopener" style="color: #FFFFFF; text-decoration: underline">Zalo chat</a></div>
-<div><strong>Hours:</strong> 8:00 AM – 6:00 PM</div>
-</div>
-</div>
-</div>
-<form style="flex: 999 1 460px; min-width: 0; background: #FFFFFF; color: #2E1D12; border-radius: 12px; padding: 30px; display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; flex-wrap: wrap; gap: 16px">
-<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-weight: 600"><span class="vi">Họ tên / Gara</span><span class="en">Name / Workshop</span><input type="text" style="border: 1px solid #CDB9A5; border-radius: 6px; padding: 12px 14px; font-size: 16px; color: #2E1D12"></label>
-<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-weight: 600"><span class="vi">Số điện thoại</span><span class="en">Phone</span><input type="tel" style="border: 1px solid #CDB9A5; border-radius: 6px; padding: 12px 14px; font-size: 16px; color: #2E1D12"></label>
-</div>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-weight: 600"><span class="vi">Hãng xe, đời xe</span><span class="en">Make, model, year</span><input type="text" style="border: 1px solid #CDB9A5; border-radius: 6px; padding: 12px 14px; font-size: 16px; color: #2E1D12"></label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-weight: 600"><span class="vi">Mã lỗi / mô tả triệu chứng</span><span class="en">Fault codes / symptoms</span><textarea rows="4" style="border: 1px solid #CDB9A5; border-radius: 6px; padding: 12px 14px; font-size: 16px; color: #2E1D12; resize: vertical"></textarea></label>
-<button type="button" style="align-self: flex-start; background: #5B3A24; color: #FFFFFF; border: 0; font-weight: 700; font-size: 16px; padding: 14px 32px; border-radius: 6px; cursor: pointer"><span class="vi">Gửi yêu cầu</span><span class="en">Send request</span></button>
-</form>
-</div>
-</section>
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-info">
+        <h2 data-k="contact_title"><span class="vi">Liên hệ MUT</span><span class="en">Contact MUT</span></h2>
+        <p class="intro" data-k="contact_intro"><span class="vi">Gửi mã lỗi và đời xe, kỹ thuật viên sẽ phản hồi trong giờ làm việc.</span><span class="en">Send us the fault codes and vehicle model; a technician will reply during business hours.</span></p>
+        <div class="contact-lines">
+          <div><strong data-k="label_person"><span class="vi">Người liên hệ</span><span class="en">Contact person</span></strong><strong>:</strong> <span data-k="contact_person"><span class="vi">Tuấn Anh</span><span class="en">Tuấn Anh</span></span></div>
+          <div><strong data-k="label_address"><span class="vi">Địa chỉ</span><span class="en">Address</span></strong><strong>:</strong> <span data-k="address"><span class="vi">Nguyễn Quốc Trinh, Đại Áng, Ngọc Hồi, Hà Nội</span><span class="en">Nguyen Quoc Trinh St., Dai Ang, Ngoc Hoi, Hanoi, Vietnam</span></span></div>
+          <div><strong data-k="label_hotline"><span class="vi">Hotline / Zalo</span><span class="en">Hotline / Zalo</span></strong><strong>:</strong> <a data-tel data-phone href="tel:0981001105">0981 001 105</a> · <a data-zalo href="https://zalo.me/0981001105" target="_blank" rel="noopener" data-k="zalo_text"><span class="vi">Chat Zalo</span><span class="en">Zalo chat</span></a></div>
+          <div><strong data-k="label_hours"><span class="vi">Giờ làm việc</span><span class="en">Hours</span></strong><strong>:</strong> <span data-k="hours"><span class="vi">8:00 – 18:00</span><span class="en">8:00 AM – 6:00 PM</span></span></div>
+        </div>
+      </div>
+      <form id="req-form" novalidate>
+        <div class="row">
+          <label><span data-k="form_name"><span class="vi">Họ tên / Gara</span><span class="en">Name / Workshop</span></span><input name="name" type="text" autocomplete="name" maxlength="120"></label>
+          <label><span data-k="form_phone"><span class="vi">Số điện thoại</span><span class="en">Phone</span></span><input name="phone" type="tel" autocomplete="tel" maxlength="30" required></label>
+        </div>
+        <label><span data-k="form_car"><span class="vi">Hãng xe, đời xe</span><span class="en">Make, model, year</span></span><input name="car" type="text" maxlength="160"></label>
+        <label><span data-k="form_issue"><span class="vi">Mã lỗi / mô tả triệu chứng</span><span class="en">Fault codes / symptoms</span></span><textarea name="issue" rows="4" maxlength="2000"></textarea></label>
+        <label class="hp" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+        <p class="form-msg" id="form-msg" role="status" hidden></p>
+        <button type="submit" id="form-btn" data-k="form_send"><span class="vi">Gửi yêu cầu</span><span class="en">Send request</span></button>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 MUT</span>
-    <span><span class="vi">Sửa chữa ECU và chẩn đoán ô tô, Hà Nội</span><span class="en">ECU repair and automotive diagnostics, Hanoi</span></span>
+    <span data-k="footer_left"><span class="vi">© 2026 MUT</span><span class="en">© 2026 MUT</span></span>
+    <span data-k="footer_right"><span class="vi">Sửa chữa ECU và chẩn đoán ô tô, Hà Nội</span><span class="en">ECU repair and automotive diagnostics, Hanoi</span></span>
   </div>
 </footer>
 
+<dialog id="detail" aria-labelledby="detail-title">
+  <button type="button" class="dlg-close" id="detail-close" data-k-aria="detail_close" aria-label="Đóng"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <img class="dlg-img" id="detail-img" alt="" hidden>
+  <div class="dlg-body">
+    <h3 id="detail-title"></h3>
+    <div class="dlg-content" id="detail-content"></div>
+    <div class="dlg-actions">
+      <a class="btn btn-brass" data-tel href="tel:0981001105"><span data-k="hero_btn_call"><span class="vi">Gọi</span><span class="en">Call</span></span>&nbsp;<span data-phone>0981 001 105</span></a>
+      <a class="btn btn-line" href="#contact" id="detail-form" data-k="detail_cta_form"><span class="vi">Gửi yêu cầu kiểm tra</span><span class="en">Request a check</span></a>
+    </div>
+  </div>
+</dialog>
+
 <script>
-(function(){
-  function set(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(function(b){var on=b.dataset.lang===l;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});try{localStorage.setItem('mut-lang',l)}catch(e){}}
-  document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.lang)})});
-  var l='vi';try{l=localStorage.getItem('mut-lang')||'vi'}catch(e){}
-  set(l);
-})();
+/* Nội dung mặc định cho tin tức (khi chưa nối Google Sheet) */
+var DEFAULT_PRODUCTS = [{"thu_tu": "1", "anh": "ecu-engine.jpg", "ten_vi": "ECU động cơ", "ten_en": "Engine ECU", "mo_ta_vi": "Sửa chữa, thay thế và cài đặt ECU động cơ cho xe tải và xe du lịch.", "mo_ta_en": "Engine ECU repair, replacement and setup for trucks and passenger cars.", "hien": "có", "chi_tiet_vi": "Sửa chữa, thay thế và cài đặt ECU động cơ cho xe tải và xe du lịch. Hộp được kiểm tra trên bàn thử, sửa xong chạy thử lại trước khi giao.\nMột số dòng xe MUT thường xử lý:\n- Sinotruk HOWO (ECU Bosch EDC7, EDC17)\n- Hyundai HD72, HD120, New Mighty\n- Isuzu, Hino, Fuso\n- Xe du lịch Toyota, Hyundai, Kia, Ford\nDòng xe khác vui lòng gọi để được tư vấn.", "chi_tiet_en": "Engine ECU repair, replacement and setup for trucks and passenger cars. Every unit is bench-tested, then tested again after repair.\nVehicles we often work on:\n- Sinotruk HOWO (Bosch EDC7, EDC17 ECUs)\n- Hyundai HD72, HD120, New Mighty\n- Isuzu, Hino, Fuso\n- Toyota, Hyundai, Kia, Ford passenger cars\nFor other vehicles, call us for advice."}, {"thu_tu": "2", "anh": "diag-software.jpg", "ten_vi": "Phần mềm chẩn đoán", "ten_en": "Diagnostic software", "mo_ta_vi": "Đọc/xóa lỗi, xem dữ liệu động, coding và cài đặt.", "mo_ta_en": "Read/clear codes, live data, coding and setup.", "hien": "có", "chi_tiet_vi": "Cung cấp, cài đặt và hướng dẫn sử dụng phần mềm chẩn đoán: đọc/xóa lỗi, xem dữ liệu động, coding và cài đặt.\nMột số phần mềm MUT hỗ trợ:\n- Jaltest (xe tải, xe thương mại)\n- Bosch ESI[tronic]\n- Hyundai GDS\n- Toyota Techstream\n- Cummins INSITE", "chi_tiet_en": "Supply, installation and training on diagnostic software: read/clear codes, live data, coding and setup.\nSoftware we support:\n- Jaltest (trucks and commercial vehicles)\n- Bosch ESI[tronic]\n- Hyundai GDS\n- Toyota Techstream\n- Cummins INSITE"}, {"thu_tu": "3", "anh": "diag-tool.jpg", "ten_vi": "Thiết bị chẩn đoán", "ten_en": "Diagnostic tools", "mo_ta_vi": "Máy chẩn đoán cầm tay, máy đọc lỗi OBD và cáp kết nối.", "mo_ta_en": "Handheld diagnostic scanners, OBD readers and interface cables.", "hien": "có", "chi_tiet_vi": "Máy chẩn đoán cầm tay, máy đọc lỗi OBD và cáp kết nối cho gara và kỹ thuật viên.\nMột số thiết bị MUT cung cấp:\n- Autel MaxiSys Ultra, MaxiSys MS906\n- Launch X431 PRO, X431 HD (xe tải)\n- Jaltest Link\n- Bộ cáp và đầu nối OBD cho xe tải, xe du lịch", "chi_tiet_en": "Handheld diagnostic scanners, OBD readers and interface cables for workshops and technicians.\nTools we supply:\n- Autel MaxiSys Ultra, MaxiSys MS906\n- Launch X431 PRO, X431 HD (heavy duty)\n- Jaltest Link\n- OBD cables and adapters for trucks and passenger cars"}];
+var DEFAULT_NEWS = [{"ngay": "2026-10-08", "tieu_de_vi": "MUT ra mắt website mới", "tieu_de_en": "MUT launches its new website", "tom_tat_vi": "Khách hàng và gara có thể xem dịch vụ, sản phẩm và gửi yêu cầu kiểm tra ECU ngay trên website.", "tom_tat_en": "Customers and workshops can now browse our services and products and request an ECU check online.", "anh": "ecu-repair.jpg", "link": "", "hien": "có"}];
+var TEXT = {"nav_about": {"vi": "Giới thiệu", "en": "About"}, "nav_vision": {"vi": "Tầm nhìn", "en": "Vision"}, "nav_products": {"vi": "Sản phẩm", "en": "Products"}, "nav_news": {"vi": "Tin tức", "en": "News"}, "nav_contact": {"vi": "Liên hệ", "en": "Contact"}, "hero_title": {"vi": "Sửa ECU đúng bệnh, xe sớm lăn bánh", "en": "Accurate ECU repair that gets vehicles moving"}, "hero_text": {"vi": "MUT sửa chữa, lập trình hộp ECU và cung cấp phần mềm, thiết bị chẩn đoán cho gara, chủ xe tải và xe du lịch.", "en": "MUT repairs and programs ECUs and supplies diagnostic software and tools for workshops, truck owners and passenger cars."}, "hero_btn_call": {"vi": "Gọi", "en": "Call"}, "hero_btn_products": {"vi": "Xem sản phẩm", "en": "View products"}, "phone": {"vi": "0981 001 105", "en": "0981 001 105"}, "contact_person": {"vi": "Tuấn Anh", "en": "Tuấn Anh"}, "hours": {"vi": "8:00 – 18:00", "en": "8:00 AM – 6:00 PM"}, "address": {"vi": "Nguyễn Quốc Trinh, Đại Áng, Ngọc Hồi, Hà Nội", "en": "Nguyen Quoc Trinh St., Dai Ang, Ngoc Hoi, Hanoi, Vietnam"}, "plate_phone_label": {"vi": "Hotline / Zalo", "en": "Hotline / Zalo"}, "plate_hours_label": {"vi": "Giờ làm việc", "en": "Business hours"}, "plate_addr_label": {"vi": "Xưởng", "en": "Workshop"}, "about_title": {"vi": "Về công ty MUT", "en": "About MUT"}, "about_lead": {"vi": "MUT tập trung vào phần điện – điện tử ô tô: sửa chữa và lập trình hộp ECU, cung cấp phần mềm chẩn đoán đa hãng và hỗ trợ kỹ thuật cho gara.", "en": "MUT focuses on automotive electrical and electronic systems: ECU repair and programming, multi-brand diagnostic software and technical support for workshops."}, "about_body": {"vi": "Đội ngũ kỹ thuật nhiều năm kinh nghiệm, đã xử lý nhiều dòng xe từ xe tải đến xe du lịch như Sinotruk, Hyundai và các hãng khác. Chất lượng ổn định giúp MUT có được sự tin tưởng lâu dài của khách hàng và gara.", "en": "Our technicians bring many years of experience across a wide range of vehicles, from trucks to passenger cars, including Sinotruk, Hyundai and other makes. Consistent quality has earned MUT the long-term trust of customers and workshops."}, "svc1_title": {"vi": "Sửa chữa ECU", "en": "ECU repair"}, "svc1_text": {"vi": "Phục hồi hộp hỏng do chập, ngấm nước, quá nhiệt.", "en": "Recovering units damaged by shorts, water or heat."}, "svc2_title": {"vi": "Lập trình & coding", "en": "Programming & coding"}, "svc2_text": {"vi": "Cài đặt ECU thay thế, đồng bộ chìa khóa.", "en": "Replacement ECU setup and key synchronisation."}, "svc3_title": {"vi": "Hỗ trợ kỹ thuật", "en": "Technical support"}, "svc3_text": {"vi": "Đào tạo và hỗ trợ từ xa cho gara.", "en": "Training and remote support for workshops."}, "vision_heading": {"vi": "Tầm nhìn, sứ mệnh và giá trị", "en": "Vision, mission and values"}, "vision_label": {"vi": "Tầm nhìn", "en": "Vision"}, "vision_text": {"vi": "Trở thành đơn vị ECU và chẩn đoán điện tử ô tô được gara và chủ xe tin chọn hàng đầu, đặc biệt với xe tải và xe thương mại.", "en": "To be the ECU and automotive diagnostics partner that workshops and vehicle owners trust first, especially for trucks and commercial vehicles."}, "mission_label": {"vi": "Sứ mệnh", "en": "Mission"}, "mission_text": {"vi": "Giúp gara và chủ xe xử lý lỗi điện – điện tử nhanh, đúng bệnh và tiết kiệm chi phí, để xe sớm quay lại công việc.", "en": "Help workshops and owners fix electrical and electronic faults quickly, accurately and cost-effectively, so vehicles get back to work sooner."}, "values_label": {"vi": "Giá trị cốt lõi", "en": "Core values"}, "val1_title": {"vi": "Chính xác", "en": "Accuracy"}, "val1_text": {"vi": "Chẩn đoán đúng nguyên nhân trước khi sửa.", "en": "Find the real cause before repairing."}, "val2_title": {"vi": "Minh bạch", "en": "Transparency"}, "val2_text": {"vi": "Báo giá rõ ràng, không phát sinh.", "en": "Clear quotes, no surprises."}, "val3_title": {"vi": "Tận tâm", "en": "Commitment"}, "val3_text": {"vi": "Đồng hành và hỗ trợ sau sửa chữa.", "en": "Support that continues after the repair."}, "val4_title": {"vi": "Cầu tiến", "en": "Growth"}, "val4_text": {"vi": "Liên tục cập nhật công nghệ mới.", "en": "Always learning new technology."}, "products_title": {"vi": "Sản phẩm & dịch vụ", "en": "Products & services"}, "products_intro": {"vi": "ECU, phần mềm và thiết bị chẩn đoán MUT cung cấp và hỗ trợ cài đặt. Giá tùy dòng xe, vui lòng liên hệ để được báo giá.", "en": "ECUs, software and diagnostic tools that MUT supplies and installs. Pricing depends on the vehicle – contact us for a quote."}, "product_cta": {"vi": "Liên hệ báo giá", "en": "Contact for price"}, "news_title": {"vi": "Tin tức", "en": "News"}, "news_intro": {"vi": "Cập nhật mới nhất từ xưởng MUT.", "en": "Latest updates from the MUT workshop."}, "news_empty": {"vi": "Chưa có tin mới.", "en": "No news yet."}, "news_more": {"vi": "Xem chi tiết", "en": "Read more"}, "contact_title": {"vi": "Liên hệ MUT", "en": "Contact MUT"}, "contact_intro": {"vi": "Gửi mã lỗi và đời xe, kỹ thuật viên sẽ phản hồi trong giờ làm việc.", "en": "Send us the fault codes and vehicle model; a technician will reply during business hours."}, "label_person": {"vi": "Người liên hệ", "en": "Contact person"}, "label_address": {"vi": "Địa chỉ", "en": "Address"}, "label_hotline": {"vi": "Hotline / Zalo", "en": "Hotline / Zalo"}, "label_hours": {"vi": "Giờ làm việc", "en": "Hours"}, "zalo_text": {"vi": "Chat Zalo", "en": "Zalo chat"}, "form_name": {"vi": "Họ tên / Gara", "en": "Name / Workshop"}, "form_phone": {"vi": "Số điện thoại", "en": "Phone"}, "form_car": {"vi": "Hãng xe, đời xe", "en": "Make, model, year"}, "form_issue": {"vi": "Mã lỗi / mô tả triệu chứng", "en": "Fault codes / symptoms"}, "form_send": {"vi": "Gửi yêu cầu", "en": "Send request"}, "form_sending": {"vi": "Đang gửi…", "en": "Sending…"}, "form_ok": {"vi": "Đã gửi yêu cầu. Kỹ thuật viên MUT sẽ gọi lại cho bạn trong giờ làm việc.", "en": "Request sent. A MUT technician will call you back during business hours."}, "form_err": {"vi": "Chưa gửi được. Vui lòng gọi hotline hoặc nhắn Zalo.", "en": "Couldn't send. Please call the hotline or message us on Zalo."}, "form_need_phone": {"vi": "Nhập số điện thoại để kỹ thuật viên gọi lại.", "en": "Enter a phone number so we can call you back."}, "footer_left": {"vi": "© 2026 MUT", "en": "© 2026 MUT"}, "footer_right": {"vi": "Sửa chữa ECU và chẩn đoán ô tô, Hà Nội", "en": "ECU repair and automotive diagnostics, Hanoi"}, "svc1_detail": {"vi": "Hộp ECU hỏng thường làm xe không nổ máy, chết máy giữa đường hoặc báo lỗi liên tục dù đã thay cảm biến. MUT kiểm tra hộp trên bàn thử để tìm đúng linh kiện hỏng rồi mới sửa.\nCác lỗi thường gặp:\n- Hộp bị chập, cháy linh kiện do điện áp bất thường\n- Hộp ngấm nước, ăn mòn mạch\n- Mất giao tiếp, máy chẩn đoán không kết nối được\n- Báo lỗi kim phun, cảm biến do mạch điều khiển trong hộp\nSửa xong, hộp được chạy thử lại trước khi giao cho khách.", "en": "A failed ECU can stop the engine from starting, cut out while driving or keep throwing codes even after sensors are replaced. MUT bench-tests the unit to find the faulty component before repairing it.\nCommon faults:\n- Shorted or burnt components from voltage spikes\n- Water damage and corroded circuits\n- Lost communication with the scan tool\n- Injector or sensor codes caused by the driver circuits inside the ECU\nEvery repaired unit is tested again before it goes back to the customer."}, "svc1_image": {"vi": "ecu-repair.jpg", "en": "ecu-repair.jpg"}, "svc2_detail": {"vi": "Khi thay hộp ECU mới hoặc hộp cũ từ xe khác, hộp cần được cài đặt đúng theo xe thì xe mới chạy ổn định.\nMUT thực hiện:\n- Cài đặt ECU thay thế, sao chép dữ liệu từ hộp cũ\n- Đồng bộ chìa khóa và hệ thống chống trộm (immobilizer)\n- Coding, cài đặt thông số theo cấu hình xe\n- Cập nhật phần mềm ECU", "en": "A replacement ECU, new or used, must be set up for the specific vehicle before it will run properly.\nMUT handles:\n- Replacement ECU setup and data cloning from the old unit\n- Key and immobilizer synchronisation\n- Coding and parameter setup for the vehicle configuration\n- ECU software updates"}, "svc2_image": {"vi": "ecu-engine.jpg", "en": "ecu-engine.jpg"}, "svc3_detail": {"vi": "MUT đồng hành cùng gara trong quá trình sử dụng phần mềm và thiết bị chẩn đoán.\nHỗ trợ gồm:\n- Hướng dẫn cài đặt và sử dụng phần mềm, thiết bị chẩn đoán\n- Hỗ trợ từ xa qua điện thoại, Zalo hoặc điều khiển máy tính từ xa\n- Tư vấn hướng xử lý cho các ca lỗi điện – điện tử khó", "en": "MUT supports workshops as they use diagnostic software and tools.\nSupport includes:\n- Installation and training on diagnostic software and tools\n- Remote help by phone, Zalo or remote desktop\n- Advice on difficult electrical and electronic faults"}, "svc3_image": {"vi": "diag-software.jpg", "en": "diag-software.jpg"}, "val1_detail": {"vi": "Ở MUT, chính xác nghĩa là:\n- Kiểm tra trên bàn thử trước khi kết luận lỗi\n- Chỉ sửa, thay đúng phần hỏng\n- Chạy thử lại toàn bộ trước khi bàn giao", "en": "At MUT, accuracy means:\n- Bench-testing before naming the fault\n- Repairing or replacing only what is actually faulty\n- Full retest before handover"}, "val2_detail": {"vi": "Ở MUT, minh bạch nghĩa là:\n- Báo giá trước khi sửa\n- Giải thích rõ nguyên nhân hỏng cho khách\n- Không tự ý phát sinh chi phí", "en": "At MUT, transparency means:\n- A quote before any repair starts\n- A clear explanation of what failed and why\n- No extra charges without your approval"}, "val3_detail": {"vi": "Ở MUT, tận tâm nghĩa là:\n- Hỗ trợ sau sửa chữa qua hotline và Zalo\n- Theo dõi tình trạng xe sau khi bàn giao\n- Tư vấn cách sử dụng để hạn chế hỏng lại", "en": "At MUT, commitment means:\n- After-repair support by hotline and Zalo\n- Following up on the vehicle after handover\n- Advice on how to avoid the same failure again"}, "val4_detail": {"vi": "Ở MUT, cầu tiến nghĩa là:\n- Cập nhật phần mềm và thiết bị chẩn đoán mới\n- Học hỏi các dòng xe và công nghệ mới\n- Chia sẻ kinh nghiệm với gara đối tác", "en": "At MUT, growth means:\n- Keeping diagnostic software and tools up to date\n- Learning new vehicles and technologies\n- Sharing experience with partner workshops"}, "detail_more": {"vi": "Xem chi tiết", "en": "View details"}, "detail_close": {"vi": "Đóng", "en": "Close"}, "detail_cta_form": {"vi": "Gửi yêu cầu kiểm tra", "en": "Request a check"}, "hero_image": {"vi": "hero-truck.jpg", "en": "hero-truck.jpg"}, "about_image": {"vi": "ecu-repair.jpg", "en": "ecu-repair.jpg"}};
 </script>
 <script>
 (function(){
-  var list=document.getElementById('news-list'),empty=document.getElementById('news-empty');
-  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
-  function both(tag,cls,vi,en){var w=el(tag,cls);var a=el('span','vi',vi);var b=el('span','en',en||vi);w.appendChild(a);w.appendChild(b);return w}
-  function fmt(d,loc){var t=new Date(d+'T00:00:00');return isNaN(t)?d:t.toLocaleDateString(loc,{day:'numeric',month:'long',year:'numeric'})}
-  fetch('news.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(items){
-    items=(items||[]).filter(function(n){return n&&n.title_vi}).sort(function(a,b){return (b.date||'').localeCompare(a.date||'')}).slice(0,6);
-    if(!items.length){empty.hidden=false;return}
-    items.forEach(function(n){
-      var card=el('article','news-item');
-      if(n.image){var img=el('img');img.src=n.image;img.alt='';img.loading='lazy';card.appendChild(img)}
-      var body=el('div','news-body');
-      body.appendChild(both('div','news-date',fmt(n.date,'vi-VN'),fmt(n.date,'en-GB')));
-      body.appendChild(both('h3',null,n.title_vi,n.title_en));
-      if(n.summary_vi)body.appendChild(both('p',null,n.summary_vi,n.summary_en));
-      if(n.link&&/^(https?:)?\/\//.test(n.link)||n.link&&/^[\w#.\/-]+$/.test(n.link)){var a=both('a','ask','Xem chi tiết','Read more');a.href=n.link;if(/^https?:/.test(n.link)){a.target='_blank';a.rel='noopener'}body.appendChild(a)}
-      card.appendChild(body);list.appendChild(card);
+  /* ---------- language ---------- */
+  function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang-btn').forEach(function(b){var on=b.dataset.lang===l;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});try{localStorage.setItem('mut-lang',l)}catch(e){}}
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+  var l='vi';try{l=localStorage.getItem('mut-lang')||'vi'}catch(e){}
+  setLang(l);
+
+  /* ---------- helpers ---------- */
+  function mk(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function pair(tag,cls,vi,en){var w=mk(tag,cls);w.appendChild(mk('span','vi',vi||''));w.appendChild(mk('span','en',en||vi||''));return w}
+  function yes(v){v=String(v==null?'':v).trim().toLowerCase();return v===''||['có','co','yes','x','1','true','hiện','hien'].indexOf(v)>-1}
+  function safeUrl(u){u=String(u||'').trim();if(!u)return '';
+    var m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]+)/);
+    if(m)return 'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1600';
+    if(/^https?:\/\//i.test(u))return u;
+    if(/^[\w.\/-]+$/.test(u)&&u.indexOf('..')<0)return u;
+    return ''}
+  function digits(p){return String(p||'').replace(/\D/g,'')}
+  function parseDate(s){s=String(s||'').trim();var m;
+    if((m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/)))return new Date(+m[1],m[2]-1,+m[3]);
+    if((m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/)))return new Date(+m[3],m[2]-1,+m[1]);
+    var d=new Date(s);return isNaN(d)?null:d}
+  function fmt(d,loc){return d?d.toLocaleDateString(loc,{day:'numeric',month:'long',year:'numeric'}):''}
+  function t(k,lang){var r=TEXT[k];return r?(r[lang]||r.vi):''}
+
+  /* ---------- apply text ---------- */
+  function applyText(){
+    document.querySelectorAll('[data-k]').forEach(function(el){
+      var r=TEXT[el.dataset.k];if(!r)return;
+      var vi=el.querySelector(':scope > .vi'),en=el.querySelector(':scope > .en');
+      if(vi&&r.vi)vi.textContent=r.vi;
+      if(en)en.textContent=r.en||r.vi;
     });
-  }).catch(function(){empty.hidden=false});
+    var phone=t('phone','vi'),d=digits(phone);
+    if(d){
+      document.querySelectorAll('[data-phone]').forEach(function(e){e.textContent=phone});
+      document.querySelectorAll('[data-tel]').forEach(function(e){e.href='tel:'+d});
+      document.querySelectorAll('[data-zalo]').forEach(function(e){e.href='https://zalo.me/'+d});
+    }
+    var hb=safeUrl(t('hero_image','vi'));
+    if(hb)document.querySelector('.hero').style.backgroundImage='linear-gradient(95deg,rgba(42,26,16,0.95) 0%,rgba(42,26,16,0.82) 42%,rgba(42,26,16,0.25) 78%,rgba(42,26,16,0.1) 100%),url("'+hb.replace(/"/g,'%22')+'")';
+    var ai=safeUrl(t('about_image','vi'));if(ai)document.querySelector('[data-img=about_image]').src=ai;
+  }
+
+  /* ---------- products ---------- */
+  function renderProducts(rows){
+    rows=(rows||[]).filter(function(r){return r.ten_vi&&yes(r.hien)}).sort(function(a,b){return (+a.thu_tu||99)-(+b.thu_tu||99)});
+    if(!rows.length)return;
+    PRODUCTS_NOW=rows;
+    var list=document.getElementById('product-list');list.textContent='';
+    rows.forEach(function(r,i){
+      var a=mk('article','product');
+      var img=safeUrl(r.anh);
+      if(img){var btn=mk('button','prod-img');btn.type='button';btn.dataset.prod=i;btn.setAttribute('aria-haspopup','dialog');btn.setAttribute('aria-label',r.ten_vi+' – '+t('detail_more','vi'));
+        var f=mk('figure'),im=mk('img');im.src=img;im.alt=r.ten_vi;im.loading='lazy';f.appendChild(im);btn.appendChild(f);a.appendChild(btn)}
+      var b=mk('div','product-body');
+      b.appendChild(pair('h3',null,r.ten_vi,r.ten_en));
+      if(r.mo_ta_vi)b.appendChild(pair('p',null,r.mo_ta_vi,r.mo_ta_en));
+      var act=mk('div','prod-actions');
+      var more=pair('button','prod-more',t('detail_more','vi'),t('detail_more','en'));more.type='button';more.dataset.prod=i;more.setAttribute('aria-haspopup','dialog');
+      more.insertAdjacentHTML('beforeend','<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>');
+      act.appendChild(more);
+      var c=pair('a','ask',t('product_cta','vi'),t('product_cta','en'));c.href='#contact';act.appendChild(c);
+      b.appendChild(act);a.appendChild(b);list.appendChild(a);
+    });
+  }
+
+  /* ---------- news ---------- */
+  function renderNews(rows){
+    var list=document.getElementById('news-list'),empty=document.getElementById('news-empty');list.textContent='';
+    rows=(rows||[]).filter(function(r){return r.tieu_de_vi&&yes(r.hien)})
+      .map(function(r){r._d=parseDate(r.ngay);return r})
+      .sort(function(a,b){return (b._d||0)-(a._d||0)}).slice(0,6);
+    empty.hidden=rows.length>0;
+    rows.forEach(function(r){
+      var a=mk('article','news-item');
+      var img=safeUrl(r.anh);
+      if(img){var i=mk('img');i.src=img;i.alt='';i.loading='lazy';a.appendChild(i)}
+      var b=mk('div','news-body');
+      b.appendChild(pair('div','news-date',fmt(r._d,'vi-VN'),fmt(r._d,'en-GB')));
+      b.appendChild(pair('h3',null,r.tieu_de_vi,r.tieu_de_en));
+      if(r.tom_tat_vi)b.appendChild(pair('p',null,r.tom_tat_vi,r.tom_tat_en));
+      var link=safeUrl(r.link);
+      if(link){var m=pair('a','ask',t('news_more','vi'),t('news_more','en'));m.href=link;if(/^https?:/i.test(link)){m.target='_blank';m.rel='noopener'}b.appendChild(m)}
+      a.appendChild(b);list.appendChild(a);
+    });
+  }
+
+  /* ---------- load from sheet ---------- */
+  renderNews(DEFAULT_NEWS);
+  if(SHEET_API){
+    fetch(SHEET_API,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(data){
+      (data.NoiDung||[]).forEach(function(r){var k=String(r.key||'').trim();if(k&&(r.vi||r.en))TEXT[k]={vi:r.vi||'',en:r.en||''}});
+      applyText();
+      if(data.SanPham)renderProducts(data.SanPham);
+      if(data.TinTuc)renderNews(data.TinTuc);
+    }).catch(function(e){console.warn('Google Sheet chưa tải được, dùng nội dung mặc định.',e)});
+  }
+
+  /* ---------- detail popups ---------- */
+  var dlg=document.getElementById('detail'),lastBtn=null;
+  function richText(txt){
+    var box=document.createDocumentFragment(),ul=null;
+    String(txt||'').split(/\r?\n/).forEach(function(line){
+      line=line.trim();if(!line)return;
+      var m=line.match(/^[-•*]\s*(.*)$/);
+      if(m){if(!ul){ul=mk('ul');box.appendChild(ul)}ul.appendChild(mk('li',null,m[1]))}
+      else{ul=null;box.appendChild(mk('p',null,line))}
+    });
+    return box;
+  }
+  function openData(o,btn){
+    lastBtn=btn;
+    var title=document.getElementById('detail-title'),content=document.getElementById('detail-content'),img=document.getElementById('detail-img');
+    title.textContent='';title.appendChild(mk('span','vi',o.tv));title.appendChild(mk('span','en',o.te||o.tv));
+    content.textContent='';
+    var v=mk('div','vi'),e=mk('div','en');
+    v.appendChild(richText(o.dv));e.appendChild(richText(o.de||o.dv));
+    content.appendChild(v);content.appendChild(e);
+    var src=safeUrl(o.img);
+    if(src){img.src=src;img.hidden=false}else{img.hidden=true;img.removeAttribute('src')}
+    document.getElementById('detail-close').setAttribute('aria-label',t('detail_close',document.documentElement.lang));
+    if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute('open','')}
+    dlg.scrollTop=0;
+  }
+  function openDetail(id,btn){
+    openData({tv:t(id+'_title','vi'),te:t(id+'_title','en'),dv:t(id+'_detail','vi')||t(id+'_text','vi'),de:t(id+'_detail','en')||t(id+'_text','en'),img:t(id+'_image','vi')},btn);
+  }
+  var PRODUCTS_NOW=DEFAULT_PRODUCTS;
+  function openProduct(i,btn){
+    var r=PRODUCTS_NOW[i];if(!r)return;
+    var def=DEFAULT_PRODUCTS.filter(function(d){return d.ten_vi===r.ten_vi})[0]||{};
+    if(!r.chi_tiet_vi&&def.chi_tiet_vi){r.chi_tiet_vi=def.chi_tiet_vi;r.chi_tiet_en=r.chi_tiet_en||def.chi_tiet_en}
+    openData({tv:r.ten_vi,te:r.ten_en,dv:r.chi_tiet_vi||r.mo_ta_vi,de:r.chi_tiet_en||r.mo_ta_en||r.chi_tiet_vi||r.mo_ta_vi,img:r.anh},btn);
+  }
+  document.getElementById('product-list').addEventListener('click',function(ev){
+    var b=ev.target.closest('[data-prod]');if(b)openProduct(+b.dataset.prod,b);
+  });
+  function closeDetail(){if(dlg.close)dlg.close();else dlg.removeAttribute('open')}
+  dlg.addEventListener('close',function(){if(lastBtn)lastBtn.focus()});
+  document.querySelectorAll('[data-detail]').forEach(function(b){b.addEventListener('click',function(){openDetail(b.dataset.detail,b)})});
+  document.getElementById('detail-close').addEventListener('click',closeDetail);
+  dlg.addEventListener('click',function(ev){if(ev.target===dlg)closeDetail()});
+  document.getElementById('detail-form').addEventListener('click',function(ev){ev.preventDefault();lastBtn=null;closeDetail();document.getElementById('contact').scrollIntoView({behavior:'smooth'});setTimeout(function(){var f=document.querySelector('#req-form input');if(f)f.focus({preventScroll:true})},500)});
+
+  /* ---------- form ---------- */
+  var form=document.getElementById('req-form'),msg=document.getElementById('form-msg'),btn=document.getElementById('form-btn');
+  function show(kind,key){msg.hidden=false;msg.className='form-msg '+kind;msg.textContent='';msg.appendChild(mk('span','vi',t(key,'vi')));msg.appendChild(mk('span','en',t(key,'en')))}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var fd=new FormData(form),data={};fd.forEach(function(v,k){data[k]=String(v).trim()});
+    if(digits(data.phone).length<8){show('err','form_need_phone');form.phone.focus();return}
+    if(!SHEET_API){show('err','form_err');return}
+    btn.disabled=true;var lbl=btn.innerHTML;btn.textContent='';btn.appendChild(mk('span','vi',t('form_sending','vi')));btn.appendChild(mk('span','en',t('form_sending','en')));
+    data.lang=document.documentElement.lang;data.page=location.href;
+    fetch(SHEET_API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)})
+      .then(function(){show('ok','form_ok');form.reset()})
+      .catch(function(){show('err','form_err')})
+      .then(function(){btn.disabled=false;btn.innerHTML=lbl});
+  });
 })();
 </script>
 </body>
