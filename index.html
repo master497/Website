@@ -150,6 +150,20 @@ h3{margin:0}
 @media (max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.product-grid{grid-template-columns:1fr}}
 
+/* news */
+.news{padding:clamp(64px,8vw,104px) 0;background:var(--linen)}
+.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.news-item{background:#fff;border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.news-item img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.news-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.news-date{font-size:14px;color:var(--saddle);font-weight:600}
+.news-item h3{font-weight:700;font-size:20px;line-height:1.3;color:var(--espresso)}
+.news-item p{margin:0;color:var(--muted)}
+.news-item .ask{margin-top:auto;padding-top:10px;align-self:flex-start;font-weight:700;color:var(--saddle);text-decoration:none;border-bottom:2px solid var(--brass)}
+.news-empty{color:var(--muted);margin:0}
+@media (max-width:900px){.news-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.news-grid{grid-template-columns:1fr}}
+
 /* contact */
 #contact label{display:flex}
 #contact input:focus,#contact textarea:focus{outline:none;border-color:#5B3A24;box-shadow:0 0 0 3px rgba(201,146,46,0.35)}
@@ -170,6 +184,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
       <a href="#about"><span class="vi">Giới thiệu</span><span class="en">About</span></a>
       <a href="#vision"><span class="vi">Tầm nhìn</span><span class="en">Vision</span></a>
       <a href="#products"><span class="vi">Sản phẩm</span><span class="en">Products</span></a>
+      <a href="#news"><span class="vi">Tin tức</span><span class="en">News</span></a>
       <a href="#contact"><span class="vi">Liên hệ</span><span class="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
@@ -332,6 +347,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
     </div>
   </section>
 
+  <section id="news" class="news">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="vi"><h2 class="display">Tin tức</h2><p>Cập nhật mới nhất từ xưởng MUT.</p></div>
+        <div class="en"><h2 class="display">News</h2><p>Latest updates from the MUT workshop.</p></div>
+      </div>
+      <div class="news-grid" id="news-list" aria-live="polite"></div>
+      <p class="news-empty" id="news-empty" hidden><span class="vi">Chưa có tin mới.</span><span class="en">No news yet.</span></p>
+    </div>
+  </section>
+
   <section id="contact" style="background: #5B3A24; color: #FFFFFF">
 <div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px">
 <div style="flex: 1 1 340px; min-width: 0">
@@ -382,6 +408,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
   document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){set(b.dataset.lang)})});
   var l='vi';try{l=localStorage.getItem('mut-lang')||'vi'}catch(e){}
   set(l);
+})();
+</script>
+<script>
+(function(){
+  var list=document.getElementById('news-list'),empty=document.getElementById('news-empty');
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function both(tag,cls,vi,en){var w=el(tag,cls);var a=el('span','vi',vi);var b=el('span','en',en||vi);w.appendChild(a);w.appendChild(b);return w}
+  function fmt(d,loc){var t=new Date(d+'T00:00:00');return isNaN(t)?d:t.toLocaleDateString(loc,{day:'numeric',month:'long',year:'numeric'})}
+  fetch('news.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(items){
+    items=(items||[]).filter(function(n){return n&&n.title_vi}).sort(function(a,b){return (b.date||'').localeCompare(a.date||'')}).slice(0,6);
+    if(!items.length){empty.hidden=false;return}
+    items.forEach(function(n){
+      var card=el('article','news-item');
+      if(n.image){var img=el('img');img.src=n.image;img.alt='';img.loading='lazy';card.appendChild(img)}
+      var body=el('div','news-body');
+      body.appendChild(both('div','news-date',fmt(n.date,'vi-VN'),fmt(n.date,'en-GB')));
+      body.appendChild(both('h3',null,n.title_vi,n.title_en));
+      if(n.summary_vi)body.appendChild(both('p',null,n.summary_vi,n.summary_en));
+      if(n.link&&/^(https?:)?\/\//.test(n.link)||n.link&&/^[\w#.\/-]+$/.test(n.link)){var a=both('a','ask','Xem chi tiết','Read more');a.href=n.link;if(/^https?:/.test(n.link)){a.target='_blank';a.rel='noopener'}body.appendChild(a)}
+      card.appendChild(body);list.appendChild(card);
+    });
+  }).catch(function(){empty.hidden=false});
 })();
 </script>
 </body>
